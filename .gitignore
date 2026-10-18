@@ -1,0 +1,6 @@
+.env
+.env.*
+*.fqa
+.project
+*.local.lua
+.DS_Store
