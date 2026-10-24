@@ -1,7 +1,7 @@
 MODULE = MODULE or {}
 
 local MODULE_NAME = "xStreamRoute"
-local VERSION = "1.0.0"
+local VERSION = "1.0.1"
 local ENABLED = true
 
 -- StreamRoute is normally found by its stable QuickApp UUID. The fallback is
@@ -20,6 +20,7 @@ local US_LED_COLOR = "signalBlue"
 local function setup(er)
   local rule = er.eval
   local var = er.variables
+  local livingroom = var.HT and var.HT.livingroom
   local streamRouteId = nil
 
   local function resolveStreamRoute()
@@ -58,11 +59,18 @@ local function setup(er)
   end
 
   function var.streamRouteSyncLed()
-    if confirmedMode() == "US" then
-      bgSet(HT.livingroom.matrix_root, LED_NUMBER, US_LED_COLOR)
-    else
-      bgClear(HT.livingroom.matrix_root, LED_NUMBER)
+    if not livingroom or not livingroom.matrix_root then
+      fibaro.error(MODULE_NAME, "HT.livingroom.matrix_root is not configured")
+      return false
     end
+
+    if confirmedMode() == "US" then
+      var.bgSet(livingroom.matrix_root, LED_NUMBER, US_LED_COLOR)
+    else
+      var.bgClear(livingroom.matrix_root, LED_NUMBER)
+    end
+
+    return true
   end
 
   function var.streamRouteToggle()
