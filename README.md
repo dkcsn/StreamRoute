@@ -9,7 +9,7 @@ disabled.
 - Device type: `com.fibaro.deviceController`
 - QuickApp UUID: `089576b5-83a3-4456-a05f-754afdb7ca77`
 - Developer: Christian Søgaard
-- Version: 1.3.0
+- Version: 1.3.1
 
 ## Project structure
 
@@ -29,7 +29,7 @@ local icon ID in hidden internal storage.
 
 ## Installation
 
-1. Download `StreamRoute-1.3.0.fqa` from the GitHub release.
+1. Download `StreamRoute-1.3.1.fqa` from the GitHub release.
 2. In HC3, open **Settings → Devices → Other Device → Quick App → File** and
    import the package.
 3. Open the QuickApp's **Variables** tab and enter the UniFi API key in
@@ -50,6 +50,11 @@ only if the gateway address does not respond as a UniFi console.
 All other settings are saved in hidden internal storage under `sr_config`.
 Fresh installations learn the source-network ID and both interface IDs from
 the two existing policies, then freeze those identifiers for all later writes.
+
+At every startup, the QuickApp verifies its stable `quickAppUuid`, developer,
+and model metadata. If an HC3 copy operation removes or changes them,
+StreamRoute restores and verifies them through HC3's dedicated plugin-property
+API. The stable UUID is `089576b5-83a3-4456-a05f-754afdb7ca77`.
 
 ## Required UniFi configuration
 

@@ -2,7 +2,7 @@
 --%%type:com.fibaro.deviceController
 --%%uid:089576b5-83a3-4456-a05f-754afdb7ca77
 --%%manufacturer:Christian Søgaard
---%%model:StreamRoute 1.3.0
+--%%model:StreamRoute 1.3.1
 --%%description:Skifter TV-SmartDNS mellem Internet 1 (DK), US_Tunnel (USA) og normal routing
 --%%file:icon.lua,icon
 --%%file:config.lua,config
@@ -60,6 +60,12 @@ function QuickApp:onInit()
   self.busy = false
   self.mode = nil
 
+  local metadataOk, metadataError = StreamRouteConfig.ensureQuickAppMetadata(self)
+  if not metadataOk then
+    self:setError(metadataError)
+    return
+  end
+
   self:ensureStreamRouteIcon()
 
   StreamRouteConfig.ensureSecretVariable(self, "UNIFI_API_KEY")
@@ -89,7 +95,7 @@ function QuickApp:onInit()
     timeoutMs = self.config.timeoutMs,
   })
 
-  self:debug("StreamRoute 1.3.0 startet; hidden internal storage verificeret")
+  self:debug("StreamRoute 1.3.1 startet; UUID og hidden internal storage verificeret")
   self:refreshState()
   setInterval(function()
     if not self.busy then self:refreshState() end

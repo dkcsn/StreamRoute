@@ -2,6 +2,9 @@ StreamRouteConfig = {}
 
 local STORAGE_KEY = "sr_config"
 local SECRET_TYPE = "password"
+local QUICKAPP_UUID = "089576b5-83a3-4456-a05f-754afdb7ca77"
+local QUICKAPP_MANUFACTURER = "Christian Søgaard"
+local QUICKAPP_MODEL = "StreamRoute 1.3.1"
 
 local DEFAULT_CONFIG = {
   schemaVersion = 1,
@@ -67,6 +70,47 @@ local function findDefaultGateway()
     end
   end
   return nil
+end
+
+function StreamRouteConfig.ensureQuickAppMetadata(qa)
+  local required = {
+    quickAppUuid = QUICKAPP_UUID,
+    manufacturer = QUICKAPP_MANUFACTURER,
+    model = QUICKAPP_MODEL,
+  }
+  local changed = false
+
+  for propertyName, expectedValue in pairs(required) do
+    if trim(qa.properties[propertyName]) ~= expectedValue then
+      local _, updateStatus = api.post("/plugins/updateProperty", {
+        deviceId = qa.id,
+        propertyName = propertyName,
+        value = expectedValue,
+      })
+      local status = tonumber(updateStatus)
+      if not status or status < 200 or status >= 300 then
+        return false, "QuickApp metadata kunne ikke gemmes: " .. propertyName
+      end
+      changed = true
+    end
+  end
+
+  local device, readStatus = api.get("/devices/" .. qa.id)
+  local properties = device and device.properties or {}
+  if tonumber(readStatus) ~= 200 then
+    return false, "QuickApp metadata kunne ikke læses tilbage"
+  end
+  for propertyName, expectedValue in pairs(required) do
+    if trim(properties[propertyName]) ~= expectedValue then
+      return false, "QuickApp metadata kunne ikke verificeres: " .. propertyName
+    end
+    qa.properties[propertyName] = expectedValue
+  end
+
+  if changed then
+    qa:debug("QuickApp UUID, developer og model repareret og verificeret")
+  end
+  return true, nil
 end
 
 function StreamRouteConfig.ensureSecretVariable(qa, variableName)

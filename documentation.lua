@@ -1,5 +1,5 @@
 --[[
-STREAMROUTE 1.3.0 - INSTALLATION AND OPERATION
+STREAMROUTE 1.3.1 - INSTALLATION AND OPERATION
 Developer: Christian Søgaard
 QuickApp UUID: 089576b5-83a3-4456-a05f-754afdb7ca77
 
@@ -40,6 +40,11 @@ All installation-specific routing identifiers are held in hidden HC3 internal
 storage under "sr_config". On first successful connection, the QuickApp learns
 the common source-network ID and both interface IDs from the two exact policy
 names, validates their shape, and freezes the identifiers for future writes.
+
+At every startup, StreamRoute verifies its stable QuickApp UUID, developer,
+and model metadata. If an HC3 copy operation removes or changes them, the
+QuickApp restores and verifies the values through HC3's dedicated plugin
+property API before continuing.
 
 If either policy is deleted and recreated, relearn the identifiers after
 checking the policies carefully:

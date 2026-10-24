@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1 - 2026-10-24
+
+- Added runtime repair and verification of the stable QuickApp UUID, developer,
+  and model metadata through HC3's dedicated plugin-property API.
+- Fixed HC3 copies starting with empty metadata despite source directives.
+
 ## 1.3.0 - 2026-10-18
 
 - Split the QuickApp into five focused Lua files.
