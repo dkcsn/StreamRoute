@@ -9,7 +9,7 @@ disabled.
 - Device type: `com.fibaro.deviceController`
 - QuickApp UUID: `089576b5-83a3-4456-a05f-754afdb7ca77`
 - Developer: Christian Søgaard
-- Version: 1.3.2
+- Version: 1.3.3
 
 ## Project structure
 
@@ -30,7 +30,7 @@ local icon ID in hidden internal storage.
 
 ## Installation
 
-1. Download `StreamRoute-1.3.2.fqa` from the GitHub release.
+1. Download `StreamRoute-1.3.3.fqa` from the GitHub release.
 2. In HC3, open **Settings → Devices → Other Device → Quick App → File** and
    import the package.
 3. Open the QuickApp's **Variables** tab and enter the UniFi API key in
@@ -92,7 +92,9 @@ Boolean `true` selects USA and `false` disables both policies.
 [`examples/EventRunner7/xStreamRoute.lua`](examples/EventRunner7/xStreamRoute.lua)
 contains a drop-in EV7 module for the living-room Matrix. Button 2 on scene
 device 218 toggles between DK and US, holding it disables both PBR policies,
-and Matrix LED 2 is blue only after StreamRoute has confirmed US routing.
+and Matrix LED 2 has a persistent blue override only after StreamRoute has
+confirmed US routing. The override is cleared for DK, OFF, unknown, and error
+states.
 
 Copy the file into the EventRunner7 QuickApp and add this directive to its
 `main.lua` file list after the shared helpers have loaded:

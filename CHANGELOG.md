@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.3 - 2026-10-24
+
+- Publish QuickApp errors through the `log` property so external automations
+  can clear stale status indicators.
+- Make the EventRunner7 US LED behavior explicitly persistent and clear its
+  override for every non-US state.
+
 ## 1.3.2 - 2026-10-24
 
 - Added a persistent version and developer label to the QuickApp UI.

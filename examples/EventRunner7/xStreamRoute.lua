@@ -1,7 +1,7 @@
 MODULE = MODULE or {}
 
 local MODULE_NAME = "xStreamRoute"
-local VERSION = "1.0.1"
+local VERSION = "1.0.2"
 local ENABLED = true
 
 -- StreamRoute is normally found by its stable QuickApp UUID. The fallback is
@@ -22,6 +22,11 @@ local function setup(er)
   local var = er.variables
   local livingroom = var.HT and var.HT.livingroom
   local streamRouteId = nil
+  local ledTarget = livingroom and {
+    scope = "matrix",
+    id = livingroom.matrix_root,
+    leds = {LED_NUMBER},
+  } or nil
 
   local function resolveStreamRoute()
     if streamRouteId then return streamRouteId end
@@ -59,15 +64,22 @@ local function setup(er)
   end
 
   function var.streamRouteSyncLed()
-    if not livingroom or not livingroom.matrix_root then
+    if not ledTarget or not ledTarget.id then
       fibaro.error(MODULE_NAME, "HT.livingroom.matrix_root is not configured")
       return false
     end
 
+    if type(var.bgCall) ~= "function" or var.bgSource == nil then
+      fibaro.error(MODULE_NAME, "xHelperColor is not loaded")
+      return false
+    end
+
     if confirmedMode() == "US" then
-      var.bgSet(livingroom.matrix_root, LED_NUMBER, US_LED_COLOR)
+      -- Backgroundlight setOverride is persistent until clearOverride is sent.
+      var.bgCall("setOverride", var.bgSource, ledTarget, US_LED_COLOR)
     else
-      var.bgClear(livingroom.matrix_root, LED_NUMBER)
+      -- DK, OFF, UNKNOWN and ERROR must never retain the US indicator.
+      var.bgCall("clearOverride", var.bgSource, ledTarget)
     end
 
     return true

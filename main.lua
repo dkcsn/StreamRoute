@@ -2,7 +2,7 @@
 --%%type:com.fibaro.deviceController
 --%%uid:089576b5-83a3-4456-a05f-754afdb7ca77
 --%%manufacturer:Christian Søgaard
---%%model:StreamRoute 1.3.2
+--%%model:StreamRoute 1.3.3
 --%%description:Skifter TV-SmartDNS mellem Internet 1 (DK), US_Tunnel (USA) og normal routing
 --%%file:icon.lua,icon
 --%%file:config.lua,config
@@ -22,7 +22,7 @@
 --%%u:{{button="btnDk",text="Danmark",onReleased="selectDenmark"},{button="btnUs",text="USA",onReleased="selectUsa"}}
 --%%u:{button="btnDisable",text="PBR fra",onReleased="disablePolicies"}
 --%%u:{button="btnRefresh",text="Opdater status",onReleased="refreshButton"}
---%%u:{label="versionLabel",text="StreamRoute v1.3.2 • Christian Søgaard"}
+--%%u:{label="versionLabel",text="StreamRoute v1.3.3 • Christian Søgaard"}
 
 function QuickApp:turnOn()
   self:setMode(StreamRouteModes.US)
@@ -60,8 +60,8 @@ end
 function QuickApp:onInit()
   self.busy = false
   self.mode = nil
-  self:debug("StreamRoute v1.3.2 starter | Developer: Christian Søgaard")
-  self:updateView("versionLabel", "text", "StreamRoute v1.3.2 • Christian Søgaard")
+  self:debug("StreamRoute v1.3.3 starter | Developer: Christian Søgaard")
+  self:updateView("versionLabel", "text", "StreamRoute v1.3.3 • Christian Søgaard")
 
   local metadataOk, metadataError = StreamRouteConfig.ensureQuickAppMetadata(self)
   if not metadataOk then
@@ -98,7 +98,7 @@ function QuickApp:onInit()
     timeoutMs = self.config.timeoutMs,
   })
 
-  self:debug("StreamRoute v1.3.2 klar; UUID og hidden internal storage verificeret")
+  self:debug("StreamRoute v1.3.3 klar; UUID og hidden internal storage verificeret")
   self:refreshState()
   setInterval(function()
     if not self.busy then self:refreshState() end

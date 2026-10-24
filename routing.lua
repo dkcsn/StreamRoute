@@ -90,6 +90,7 @@ function QuickApp:setError(message)
   self.mode = nil
   self:updateView("modeLabel", "text", "Tilstand: FEJL")
   self:updateView("detailLabel", "text", tostring(message))
+  self:updateProperty("log", "Tilstand: FEJL - " .. tostring(message))
   self:error(message)
 end
 
