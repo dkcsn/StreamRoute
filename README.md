@@ -19,6 +19,7 @@ disabled.
 - `unifi.lua` — UniFi HTTP client and controller fallback
 - `routing.lua` — policy validation, switching, verification, and rollback
 - `documentation.lua` — installation and operating guide included in the QuickApp
+- `examples/EventRunner7/xStreamRoute.lua` — optional Matrix button/LED rules
 
 HC3 QuickApps support multiple Lua files. All six files are packaged in one
 QuickApp; `main.lua` remains the required main file.
@@ -85,6 +86,20 @@ fibaro.call(QUICKAPP_ID, "setMode", "OFF")
 
 Accepted aliases are `USA`, `DENMARK`, `DANMARK`, `ON`, `NONE`, and `DISABLED`.
 Boolean `true` selects USA and `false` disables both policies.
+
+### EventRunner7 example
+
+[`examples/EventRunner7/xStreamRoute.lua`](examples/EventRunner7/xStreamRoute.lua)
+contains a drop-in EV7 module for the living-room Matrix. Button 2 on scene
+device 218 toggles between DK and US, holding it disables both PBR policies,
+and Matrix LED 2 is blue only after StreamRoute has confirmed US routing.
+
+Copy the file into the EventRunner7 QuickApp and add this directive to its
+`main.lua` file list after the shared helpers have loaded:
+
+```lua
+--%%file:xStreamRoute.lua,xStreamRoute
+```
 
 If either UniFi policy is deleted and recreated, verify its configuration and
 allow the QuickApp to learn the new identifiers:
