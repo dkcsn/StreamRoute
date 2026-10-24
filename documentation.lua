@@ -1,5 +1,5 @@
 --[[
-STREAMROUTE 1.3.1 - INSTALLATION AND OPERATION
+STREAMROUTE 1.3.2 - INSTALLATION AND OPERATION
 Developer: Christian Søgaard
 QuickApp UUID: 089576b5-83a3-4456-a05f-754afdb7ca77
 
@@ -45,6 +45,9 @@ At every startup, StreamRoute verifies its stable QuickApp UUID, developer,
 and model metadata. If an HC3 copy operation removes or changes them, the
 QuickApp restores and verifies the values through HC3's dedicated plugin
 property API before continuing.
+
+The installed version and developer are visible at the bottom of the QuickApp
+UI. The version is also written explicitly to the HC3 debug log at startup.
 
 If either policy is deleted and recreated, relearn the identifiers after
 checking the policies carefully:

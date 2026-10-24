@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.2 - 2026-10-24
+
+- Added a persistent version and developer label to the QuickApp UI.
+- Added explicit versioned startup and ready messages to the HC3 debug log.
+
 ## 1.3.1 - 2026-10-24
 
 - Added runtime repair and verification of the stable QuickApp UUID, developer,
