@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" fill="#FFFFFF"/>
+  <g fill="#B31942">
+    <rect y="0" width="128" height="9.8462"/>
+    <rect y="19.6923" width="128" height="9.8462"/>
+    <rect y="39.3846" width="128" height="9.8462"/>
+    <rect y="59.0769" width="128" height="9.8462"/>
+    <rect y="78.7692" width="128" height="9.8462"/>
+    <rect y="98.4615" width="128" height="9.8462"/>
+    <rect y="118.1538" width="128" height="9.8462"/>
+  </g>
+  <rect width="51.2" height="68.9231" fill="#0A3161"/>
+  <defs>
+    <polygon id="star" points="0,-2.4 0.56,-0.77 2.28,-0.74 0.91,0.29 1.41,1.94 0,0.95 -1.41,1.94 -0.91,0.29 -2.28,-0.74 -0.56,-0.77"/>
+  </defs>
+  <g fill="#FFFFFF">
+    <g>
+      <use href="#star" transform="translate(4.267 3.829)"/>
+      <use href="#star" transform="translate(12.8 3.829)"/>
+      <use href="#star" transform="translate(21.333 3.829)"/>
+      <use href="#star" transform="translate(29.867 3.829)"/>
+      <use href="#star" transform="translate(38.4 3.829)"/>
+      <use href="#star" transform="translate(46.933 3.829)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(8.533 11.487)"/>
+      <use href="#star" transform="translate(17.067 11.487)"/>
+      <use href="#star" transform="translate(25.6 11.487)"/>
+      <use href="#star" transform="translate(34.133 11.487)"/>
+      <use href="#star" transform="translate(42.667 11.487)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(4.267 19.145)"/>
+      <use href="#star" transform="translate(12.8 19.145)"/>
+      <use href="#star" transform="translate(21.333 19.145)"/>
+      <use href="#star" transform="translate(29.867 19.145)"/>
+      <use href="#star" transform="translate(38.4 19.145)"/>
+      <use href="#star" transform="translate(46.933 19.145)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(8.533 26.803)"/>
+      <use href="#star" transform="translate(17.067 26.803)"/>
+      <use href="#star" transform="translate(25.6 26.803)"/>
+      <use href="#star" transform="translate(34.133 26.803)"/>
+      <use href="#star" transform="translate(42.667 26.803)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(4.267 34.462)"/>
+      <use href="#star" transform="translate(12.8 34.462)"/>
+      <use href="#star" transform="translate(21.333 34.462)"/>
+      <use href="#star" transform="translate(29.867 34.462)"/>
+      <use href="#star" transform="translate(38.4 34.462)"/>
+      <use href="#star" transform="translate(46.933 34.462)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(8.533 42.12)"/>
+      <use href="#star" transform="translate(17.067 42.12)"/>
+      <use href="#star" transform="translate(25.6 42.12)"/>
+      <use href="#star" transform="translate(34.133 42.12)"/>
+      <use href="#star" transform="translate(42.667 42.12)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(4.267 49.778)"/>
+      <use href="#star" transform="translate(12.8 49.778)"/>
+      <use href="#star" transform="translate(21.333 49.778)"/>
+      <use href="#star" transform="translate(29.867 49.778)"/>
+      <use href="#star" transform="translate(38.4 49.778)"/>
+      <use href="#star" transform="translate(46.933 49.778)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(8.533 57.436)"/>
+      <use href="#star" transform="translate(17.067 57.436)"/>
+      <use href="#star" transform="translate(25.6 57.436)"/>
+      <use href="#star" transform="translate(34.133 57.436)"/>
+      <use href="#star" transform="translate(42.667 57.436)"/>
+    </g>
+    <g>
+      <use href="#star" transform="translate(4.267 65.094)"/>
+      <use href="#star" transform="translate(12.8 65.094)"/>
+      <use href="#star" transform="translate(21.333 65.094)"/>
+      <use href="#star" transform="translate(29.867 65.094)"/>
+      <use href="#star" transform="translate(38.4 65.094)"/>
+      <use href="#star" transform="translate(46.933 65.094)"/>
+    </g>
+  </g>
+</svg>

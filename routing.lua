@@ -84,6 +84,7 @@ function QuickApp:setStatus(mode, detail)
   self:updateView("modeLabel", "text", labels[mode] or "Tilstand: Ukendt")
   self:updateView("detailLabel", "text", detail or "")
   self:updateProperty("log", labels[mode] or "Ukendt")
+  self:updateStreamRouteIcon(mode)
 end
 
 function QuickApp:setError(message)
@@ -91,6 +92,7 @@ function QuickApp:setError(message)
   self:updateView("modeLabel", "text", "Tilstand: FEJL")
   self:updateView("detailLabel", "text", tostring(message))
   self:updateProperty("log", "Tilstand: FEJL - " .. tostring(message))
+  self:updateStreamRouteIcon(StreamRouteModes.DK)
   self:error(message)
 end
 

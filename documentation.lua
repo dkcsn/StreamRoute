@@ -1,12 +1,14 @@
 --[[
-STREAMROUTE 1.3.3 - INSTALLATION AND OPERATION
+STREAMROUTE 1.4.0 - INSTALLATION AND OPERATION
 Developer: Christian Søgaard
 QuickApp UUID: 089576b5-83a3-4456-a05f-754afdb7ca77
 
 QUICKAPP ICON
-The supplied StreamRoute PNG is embedded in icon.lua. On a fresh HC3 the
-QuickApp uploads and selects it automatically. The controller-local icon ID is
-stored in hidden internal storage and is not a user setting.
+The supplied 128x128 Danish and US flag PNGs are embedded in icon.lua. On a
+fresh HC3 the QuickApp uploads them automatically and stores both controller-
+local icon IDs in hidden internal storage. The QuickApp shows the US flag only
+after US routing has been confirmed. DK, PBR off, unknown, and error states
+show the Danish flag.
 
 PURPOSE
 This QuickApp switches only the TV-SmartDNS network between the regular Danish

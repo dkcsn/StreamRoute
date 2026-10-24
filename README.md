@@ -1,6 +1,7 @@
 # StreamRoute Netflix DK-USA
 
-![StreamRoute icon](streamroute-icon.png)
+![Danish routing icon](streamroute-icon-dk.png)
+![US routing icon](streamroute-icon-us.png)
 
 Fibaro HC3 QuickApp for switching a dedicated TV network between regular
 Danish internet, a US UniFi VPN client, and normal routing with both policies
@@ -9,12 +10,12 @@ disabled.
 - Device type: `com.fibaro.deviceController`
 - QuickApp UUID: `089576b5-83a3-4456-a05f-754afdb7ca77`
 - Developer: Christian Søgaard
-- Version: 1.3.3
+- Version: 1.4.0
 
 ## Project structure
 
 - `main.lua` — startup, UI callbacks, and public actions
-- `icon.lua` — embedded PNG installation and controller-local icon selection
+- `icon.lua` — embedded DK/US PNG installation and dynamic icon selection
 - `config.lua` — native Secret handling, hidden internal storage, and gateway detection
 - `unifi.lua` — UniFi HTTP client and controller fallback
 - `routing.lua` — policy validation, switching, verification, and rollback
@@ -24,13 +25,15 @@ disabled.
 HC3 QuickApps support multiple Lua files. All six files are packaged in one
 QuickApp; `main.lua` remains the required main file.
 
-The supplied `streamroute-icon.png` is embedded in `icon.lua`. On a fresh HC3,
-the QuickApp uploads and selects it automatically, then keeps the controller-
-local icon ID in hidden internal storage.
+The supplied `streamroute-icon-dk.png` and `streamroute-icon-us.png` are exact
+128x128 assets embedded in `icon.lua`. On a fresh HC3, the QuickApp uploads
+both automatically, then keeps their controller-local icon IDs in hidden
+internal storage. The icon changes to the US flag only after US routing is
+confirmed. DK, PBR off, unknown, and error states use the Danish flag.
 
 ## Installation
 
-1. Download `StreamRoute-1.3.3.fqa` from the GitHub release.
+1. Download `StreamRoute-1.4.0.fqa` from the GitHub release.
 2. In HC3, open **Settings → Devices → Other Device → Quick App → File** and
    import the package.
 3. Open the QuickApp's **Variables** tab and enter the UniFi API key in

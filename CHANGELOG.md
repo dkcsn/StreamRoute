@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0 - 2026-10-24
+
+- Added exact 128x128 Danish and US flag icons.
+- Switch the QuickApp icon to the US flag only after US routing is confirmed.
+- Restore the Danish flag for DK, PBR off, unknown, and error states.
+- Store both controller-local custom icon IDs in hidden internal storage.
+
 ## 1.3.3 - 2026-10-24
 
 - Publish QuickApp errors through the `log` property so external automations

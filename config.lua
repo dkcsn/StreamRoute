@@ -4,7 +4,7 @@ local STORAGE_KEY = "sr_config"
 local SECRET_TYPE = "password"
 local QUICKAPP_UUID = "089576b5-83a3-4456-a05f-754afdb7ca77"
 local QUICKAPP_MANUFACTURER = "Christian Søgaard"
-local QUICKAPP_MODEL = "StreamRoute 1.3.3"
+local QUICKAPP_MODEL = "StreamRoute 1.4.0"
 
 local DEFAULT_CONFIG = {
   schemaVersion = 1,
